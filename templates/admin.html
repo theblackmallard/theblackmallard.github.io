@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<title>AwesomeKMD</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+p{
+ color:white;
+}
+h3{
+ color:white;
+}
+</style>
+<body bgcolor="#2e3e4f">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">Komodo Ecosystem</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-light-grey w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img src="https://avatars0.githubusercontent.com/u/21276113?s=200&v=4" class="w3-circle w3-margin-right" style="width:50px">
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome to <strong>AwesomeKMD!</strong></span><br>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-eye fa-fw"></i>  Overview</a>
+    <a href="#wallets" class="w3-bar-item w3-button w3-padding"><i class="fa fa-money fa-fw"></i>  Wallets</a>
+    <a href="#atomicdex" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  AtomicDEX Resources</a>
+    <a href="#explorers" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search-plus fa-fw"></i>  KMD Explorers</a>
+    <a href="#code" class="w3-bar-item w3-button w3-padding"><i class="fa fa-file-code-o fa-fw"></i>  Code Libraries</a>
+    <a href="#poc" class="w3-bar-item w3-button w3-padding"><i class="fa fa-microchip fa-fw"></i>  Proof of Concept Apps</a>
+    <a href="#docs" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  Documentation</a>
+    <a href="#eco" class="w3-bar-item w3-button w3-padding"><i class="fa fa-building fa-fw"></i>  Ecosystem Projects/Companies</a>
+<!--    <a href="#settings" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>-->
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> Komodo Dashboard</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{var1}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Latest Block Height</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{var2}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Last Notarized Block</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{var3}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Ecosystem Nodes</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+        <script type="text/javascript" src="https://unpkg.com/@coinpaprika/widget-currency/dist/widget.min.js"></script>
+        <div class="coinpaprika-currency-widget cp-widget__night-mode" data-primary-currency="usd" data-currency="kmd-komodo" data-modules='[]' data-update-active="false"></div>
+    </div>
+  </div>
+
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
+          <p>The Komodo Platform focuses on providing complete end-to-end blockchain solutions for developers of any level and any industry. It is simple yet powerful, offering customized blockchain solutions that are easy to deploy, and configurable to meet your needs.</p>
+          <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://community.komodoplatform.com/', '_blank')">+</button> Sign up for Komodo's new community Forum!</p>
+      </div>
+      <div class="w3-twothird">
+      </div>
+    </div>
+  </div>
+<hr>
+  <div class="w3-container" id="wallets">
+    <h3>Wallets</h3>
+    <button onclick="myFunction('official_wallet_info')" class="w3-btn w3-block w3-black w3-left-align">Official Komodo Wallets</button>
+    <div id="official_wallet_info" class="w3-container w3-hide">
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://komodoplatform.com/komodo-wallets/', '_blank')">+</button> Komodo Platform Website</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/DeckerSU/KomodoOcean','_blank')">+</button> KomodoOceanQT Desktop Wallet</p>
+    </div>
+    <button onclick="myFunction('unofficial_wallet_info')" class="w3-btn w3-block w3-black w3-left-align">Unofficial Komodo Wallets</button>
+    <div id="unofficial_wallet_info" class="w3-container w3-hide">
+    <h5>Unofficial Komodo Wallets</h5>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://veruscoin.io/wallet.html', '_blank')">+</button> Verus desktop Agama</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://veruscoin.io/wallet.html', '_blank')">+</button> Verus Enhanced Desktop Agama</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://veruscoin.io/wallet.html', '_blank')">+</button> Verus Mobile</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://veruscoin.io/wallet.html', '_blank')">+</button> Verus Paper</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://chainzilla.io/chameleonpay.html', '_blank')">+</button> Chainzilla Chameleon Pay mobile Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://pungo.app/', '_blank')">+</button> Pungo mobile Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://utrum.io/wallets', '_blank')">+</button> Utrum desktop Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://redfoxlabs.io/wallet/', '_blank')">+</button> Redfox mobile Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://coincollect.cc/', '_blank')">+</button> CoinCollect mobile Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://wallet.vidulum.app/', '_blank')">+</button> Vidulum web Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://magnumwallet.co/', '_blank')">+</button> Magnum web Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://guarda.co.com/app/', '_blank')">+</button> Guarda web Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://guarda.co/mobile-wallet', '_blank')">+</button> Guarda mobile Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://guarda.co/desktop', '_blank')">+</button> Guarda Desktop Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://guarda.co/guarda-extension', '_blank')">+</button> Guarda Chrome Extension Wallet</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://shop.ledger.com/', '_blank')">+</button> Ledger Hardware Wallet</p>
+    </div>
+    <div class="w3-grey">
+    </div>
+  </div>
+<hr>
+
+  <div class="w3-container" id="atomicdex">
+    <h3>AtomicDEX Resources</h3>
+    <button onclick="myFunction('marketmaker_info')" class="w3-btn w3-block w3-black w3-left-align">Marketmaker (MM)</button>
+    <div id="marketmaker_info" class="w3-container w3-hide">
+      <p>DEX API provider Daemon</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/jl777/SuperNET', '_blank')">+</button> v1.0 source code</p>
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/artemii235/SuperNET/tree/mm2', '_blank')">+</button> v2.0 source code (in development)</p>
+    </div>
+    <button onclick="myFunction('atomicdex_info')" class="w3-btn w3-block w3-black w3-left-align">AtomicDEX Applications</button>
+    <div id="atomicdex_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://atomicdex.io/', '_blank')">+</button> AtomicDEX Official Mobile App</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/atomiclabs/hyperdex-nightlies/releases', '_blank')">+</button> HyperDEX (3rd party) - Very user friendly interface for Marketmaker v2.0</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/chainmakers/chainmakers-ui-mono-repository/releases', '_blank')">+</button> Chainswap (3rd Party) -Marketmaker v2.0 based Desktop DEX App</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/smk762/pytomicDEX', '_blank')">+</button> PytomicDEX Desktop browser based DEX App with Arbitrage bot</p>
+    </div>
+    <div class="w3-grey">
+    </div>
+  </div>
+<hr>
+
+  <div class="w3-container" id="explorers">
+    <h3>Komodo (KMD) Explorers</h3>
+    <button onclick="myFunction('explorer_info')" class="w3-btn w3-block w3-black w3-left-align">KMD Explorers</button>
+    <div id="explorer_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://kmdexplorer.io/', '_blank')">+</button> https://kmdexplorer.io/</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://kmdexplorer.ru/', '_blank')">+</button> https://kmdexplorer.ru/</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://kmd.explorer.dexstats.info/', '_blank')">+</button> https://kmd.explorer.dexstats.info/</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://komodod.com/', '_blank')">+</button> https://komodod.com/</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.atomicexplorer.com/#/', '_blank')">+</button> https://www.atomicexplorer.com/#/</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://kmd.tokenview.com/', '_blank')">+</button> https://kmd.tokenview.com/</p>
+    </div>
+  </div>
+<hr>
+
+  <div class="w3-container" id="code">
+    <h3>Code Libraries</h3>
+    <button onclick="myFunction('code_info')" class="w3-btn w3-block w3-black w3-left-align">Code Libraries</button>
+    <div id="code_info" class="w3-container w3-hide">
+    <button onclick="myFunction('C_info')" class="w3-btn w3-block w3-black w3-left-align">C</button>
+    <div id="C_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+    <button onclick="myFunction('cplus_info')" class="w3-btn w3-block w3-black w3-left-align">C++</button>
+    <div id="cplus_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+    <button onclick="myFunction('golang_info')" class="w3-btn w3-block w3-black w3-left-align">Golang</button>
+    <div id="golang_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/satindergrewal/kmdgo', '_blank')">+</button> kmdgo Source Code</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://godoc.org/github.com/satindergrewal/kmdgo/', '_blank')">+</button> kmdgo Documentation</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/satindergrewal/kmdgo/blob/master/examples', '_blank')">+</button> kmdgo Examples</p>
+    </div>
+
+    <button onclick="myFunction('javascript_info')" class="w3-btn w3-block w3-black w3-left-align">Javascript</button>
+    <div id="javascript_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+    <button onclick="myFunction('python_info')" class="w3-btn w3-block w3-black w3-left-align">Python</button>
+    <div id="python_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+    <button onclick="myFunction('rust_info')" class="w3-btn w3-block w3-black w3-left-align">Rust</button>
+    <div id="rust_info" class="w3-container w3-hide">
+        <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/n41r0j/komodorpc-rust-client', '_blank')">+</button> komodorpc-rust-client</p>
+    </div>
+
+    <button onclick="myFunction('wasm_info')" class="w3-btn w3-block w3-black w3-left-align">WASM</button>
+    <div id="wasm_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+    </div>
+    </div>
+<hr>
+  <div class="w3-container" id="poc">
+    <h3>Proof of Concept Apps</h3>
+    <button onclick="myFunction('poc_info')" class="w3-btn w3-block w3-black w3-left-align">Proof of Concept Apps</button>
+    <div id="poc_info" class="w3-container w3-hide">
+    <button onclick="myFunction('generalcc_info')" class="w3-btn w3-block w3-black w3-left-align">General CC</button>
+    <div id="generalcc_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://composer.kmd.io/', '_blank')">+</button> Komodo's Antara Composer</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python', '_blank')">+</button> TUI for various CC modules written in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://komodostats.com/', '_blank')">+</button> Notary Node information and Stats</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://komodoelection.com/', '_blank')">+</button> Notary Node election information and Stats</p>
+    </div>
+
+    <button onclick="myFunction('assetscc_info')" class="w3-btn w3-block w3-black w3-left-align">Assets CC</button>
+    <div id="assetscc_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/NOCTLJRNE/Komodo-Pokemon.git', '_blank')">+</button> Pokemon NFTs</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/assets_cc_tui.py', '_blank')">+</button> Assets CC TUI in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/lib/tuilib.py#L1527', '_blank')">+</button> Buy/Sell NFT Rogue Characters line 1527-1915</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.kogs.gg/', '_blank')">+</button> KOGS is the first mobile blockchain game with the entire backend being programmed on the blockchain</p>
+    </div>
+
+    <button onclick="myFunction('chatcc_info')" class="w3-btn w3-block w3-black w3-left-align">Chat CC</button>
+    <div id="chatcc_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/KMDLabs/trollbox', '_blank')">+</button> On chain real time chat for KMD Smart Chains</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.atomicexplorer.com/#/trollbox', '_blank')">+</button> On chain TrollBox in Browser</p>
+    </div>
+
+    <button onclick="myFunction('channelcc_info')" class="w3-btn w3-block w3-black w3-left-align">Channels CC</button>
+    <div id="channelcc_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/ChannelsCC-GUI', '_blank')">+</button> Channels Instant Payment Mechanism</p>
+    </div>
+
+    <button onclick="myFunction('coda_info')" class="w3-btn w3-block w3-black w3-left-align">Coda</button>
+    <div id="coda_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/Mixa84/To-Do/issues/2', '_blank')">+</button> Constant Blockchain Size</p>
+    </div>
+
+
+    <button onclick="myFunction('dice_info')" class="w3-btn w3-block w3-black w3-left-align">Dice</button>
+    <div id="dice_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.dicebets.net/', '_blank')">+</button> DiceBets, Web based KMDDICE wallet and game</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('http://kmdice.bet/', '_blank')">+</button> KMDice, desktop wallets to place decentralized dice game</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/DiceCC-GUI', '_blank')">+</button> DiceCC GUI in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.virustotal.com/#/file/1a982d48b6a57d0af5cb5fce71e4c36b6b319847e72a5fc4a4f8f1a0e5d18aca/detection', '_blank')">+</button> KMDice Remote GUI Windows</p>
+    </div>
+
+
+    <button onclick="myFunction('dilithium_info')" class="w3-btn w3-block w3-black w3-left-align">Dilithium</button>
+    <div id="dilithium_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://komodoplatform.com/dilithium-quantum-secure-blockchain/', '_blank')">+</button> Dilitium Quantum Security Article</p>
+    </div>
+
+    <button onclick="myFunction('faucet_info')" class="w3-btn w3-block w3-black w3-left-align">Faucet</button>
+    <div id="faucet_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.atomicexplorer.com/#/faucet/rick', '_blank')">+</button> Live Faucet Using PoW to prevent spamming</p>
+    </div>
+
+    <button onclick="myFunction('games_info')" class="w3-btn w3-block w3-black w3-left-align">Games</button>
+    <div id="games_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/KomodoPlatform/antara-gaming-sdk/tree/0.0.1', '_blank')">+</button> Antara gaming SDK</p>
+    </div>
+
+    <button onclick="myFunction('gateways_info')" class="w3-btn w3-block w3-black w3-left-align">Gateways</button>
+    <div id="gateways_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/gateways_creation_tui.py', '_blank')">+</button> Gateways CC Creation TUI in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/gateways_usage_tui.py', '_blank')">+</button> Gateways CC Usage TUI in Python</p>
+    </div>
+
+  <button onclick="myFunction('heir_info')" class="w3-btn w3-block w3-black w3-left-align">Heir</button>
+    <div id="heir_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+  <button onclick="myFunction('marmara_info')" class="w3-btn w3-block w3-black w3-left-align">Marmara</button>
+    <div id="marmara_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/marmara_tui.py', '_blank')">+</button> Marmara TUI in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.academia.edu/41226047/Marmara_Kredi_D%C3%B6ng%C3%BCleri_Vadeli_%C3%87eklerdeki_Kar%C5%9F%C4%B1l%C4%B1ks%C4%B1zl%C4%B1k_Sorununa_Blokzinciri_%C3%87%C3%B6z%C3%BCm%C3%BC', '_blank')">+</button> Marmara Paper</p>
+    </div>
+
+  <button onclick="myFunction('momom_info')" class="w3-btn w3-block w3-black w3-left-align">MoMoM</button>
+    <div id="momom_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+  <button onclick="myFunction('musig_info')" class="w3-btn w3-block w3-black w3-left-align">Musig</button>
+    <div id="musig_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+  <button onclick="myFunction('oracles_info')" class="w3-btn w3-block w3-black w3-left-align">Oracles</button>
+    <div id="oracles_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('http://oracle.earth/', '_blank')">+</button> Live demo of Oracles CC module</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/smk762/Dragonhound', '_blank')">+</button> GPS tracking a wandering hound with Particle.io via Komodo cryptoconditions oracles, displayed on Leaflet. Source code</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://www.dragonhound.tech/', '_blank')">+</button> Oracles/Dragonhound website</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://oracle.earth/create_oracle/', '_blank')">+</button> Oracle Creator via Browser</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://oracle.earth/oracles_list/', '_blank')">+</button> List of Active Oracles</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/oracles_cc_tui.py', '_blank')">+</button> Oracles CC TUI in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/OraclesCC_Chat-GUI', '_blank')">+</button> Oracles CC TrollBox in Python (Chat)</p>
+    </div>
+
+  <button onclick="myFunction('payments_info')" class="w3-btn w3-block w3-black w3-left-align">Payments</button>
+    <div id="payments_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/payments_cc_tui.py', '_blank')">+</button> Payments CC TUI in Python</p>
+    </div>
+
+  <button onclick="myFunction('pegs_info')" class="w3-btn w3-block w3-black w3-left-align">Pegs</button>
+    <div id="pegs_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/Mixa84/komodo/wiki/Pegs-CC', '_blank')">+</button> Pegs Explainer</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/pegs_creation_tui.py', '_blank')">+</button> Pegs CC Creation TUI in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/pegs_usage_tui.py', '_blank')">+</button> Pegs CC Usage TUI in Python</p>
+    </div>
+
+  <button onclick="myFunction('prices_info')" class="w3-btn w3-block w3-black w3-left-align">Prices</button>
+    <div id="prices_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://docs.google.com/document/d/1O5hJ_ZeBWK-xP3f3RM48ruG3mOlsPbbLcXjyqtn0Oew/edit', '_blank')">+</button> Synthetic Prices Betting Game</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/prices_app_v2.py', '_blank')">+</button> Prices CC App2 in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/prices_visualization_server.py', '_blank')">+</button> Prices CC Visualization in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/rekt_inspector.py', '_blank')">+</button> Prices CC Rekt Inspector in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('http://159.69.45.70:8050/', '_blank')">+</button> Live Synthetic Price Feed</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('http://kmd.money:8050/', '_blank')">+</button> Live Synthetic Price Feed 2</p>
+    </div>
+
+  <button onclick="myFunction('rewards_info')" class="w3-btn w3-block w3-black w3-left-align">Rewards</button>
+    <div id="rewards_info" class="w3-container w3-hide">
+        <p>Nothing here...yet!</p>
+    </div>
+
+  <button onclick="myFunction('rogue_info')" class="w3-btn w3-block w3-black w3-left-align">Rogue</button>
+    <div id="rogue_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/KomodoPlatform/komodo/wiki/Get-Started-with-Rogue-Game', '_blank')">+</button> Rogue Game TUI in Python</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/rogue_tui.py', '_blank')">+</button> Rogue Game another TUI Python</p>
+    </div>
+
+  <button onclick="myFunction('sudoku_info')" class="w3-btn w3-block w3-black w3-left-align">Sudoku</button>
+    <div id="sudoku_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/Komodoku', '_blank')">+</button> Sudoku Game GUI</p>
+    </div>
+
+  <button onclick="myFunction('tetris_info')" class="w3-btn w3-block w3-black w3-left-align">Tetris</button>
+    <div id="tetris_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://github.com/tonymorony/komodo-cctools-python/blob/master/tetris_tui.py', '_blank')">+</button> Tetris CC TUI in Python</p>
+    </div>
+</div>
+</div>
+
+<hr>
+  <div class="w3-container" id="docs">
+    <h3>Documentation</h3>
+  <button onclick="myFunction('doc_info')" class="w3-btn w3-block w3-black w3-left-align">Documentation</button>
+    <div id="doc_info" class="w3-container w3-hide">
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://developers.komodoplatform.com/', '_blank')">+</button> Komodo Official Documentation</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://developers.atomicdex.io/', '_blank')">+</button> MarketMaker v2.0 API documentation</p>
+      <p><button class="w3-button w3-circle w3-teal" onclick="window.open('https://antara-gaming-sdk.readthedocs.io/', '_blank')">+</button> Antara Gaming SDK Documentation</p>
+    </div>
+    </div>
+
+<hr>
+  <div class="w3-container" id="eco">
+    <h3>Ecosystem Projects and Companies</h3>
+      <button onclick="myFunction('chainzilla_info')" class="w3-btn w3-block w3-black w3-left-align">Chainzilla</button>
+      <div id="chainzilla_info" class="w3-container w3-hide">
+          <p>At ChainZilla, our formula to boost business has four key ingredients: people, processes, technology, and innovation.For over 2 years, our team has helped projects develop applications, websites, proof-of-concepts, and business-critical software.</p>
+          <p>Our business is to learn your business, understand the needs and expectations of its users. Each solution we create is made after careful evaluation and knowledge of our detailed discovery process.ChainZilla also offers web and blockchain consulting in Panama.</p>
+          <p>It allows companies and individuals to launch blockchains, web pages, all kinds of applications effortlessly. Our goal is to become the standard for blockchain implementation, proof of concept and web development in Panama.</p>
+          <p>Our blockchain consulting service includes networks such as Ethereum, Hyperledger, NEM, Quorum, and Komodo.</p>
+          <p><button class="w3-button w3-teal" onclick="window.open('https://chainzilla.io/', '_blank')">Go to ChainZilla</button></p>
+      </div>
+
+      <button onclick="myFunction('utrum_info')" class="w3-btn w3-block w3-black w3-left-align">Utrum</button>
+      <div id="utrum_info" class="w3-container w3-hide">
+          <p>Utrum is a Crypto Playbook to find Comprehensive Information | Quality Reviews | Market Predictions | Insights | In-depth Reports | News and Events of every Crypto Project</p>
+          <p>Contributor content is voted by all community members through "trial by jury" process. Members will not have any social influence as voting process is "Blind", and members rely purely on their conscience.</p>
+          <p>To mitigate manipulation and fraudulent practices, Artificial Intelligence (A.I) is integrated in the voting process with the support of community moderators.</p>
+          <p>The contributor and voting rewards are paid in Utrum coin OOT. Members posts are secured on Utrum Native Blockchain.</p>
+          <p><button class="w3-button w3-teal" onclick="window.open('https://utrum.io/', '_blank')">Go to Utrum</button></p>
+      </div>
+
+      <button onclick="myFunction('chainmakers_info')" class="w3-btn w3-block w3-black w3-left-align">Chainmakers</button>
+      <div id="chainmakers_info" class="w3-container w3-hide">
+          <p>Chainmakers makes it easy to understand blockchains for your exact business needs, and simplifies the process to launch and customize your own independent blockchain(s) using Komodo Platform.</p>
+          <p>Komodo Platform has established an unmatched blockchain foundation to serve entrepreneurs and businesses looking to leverage blockchain technology to bolster the success of their ideas.</p>
+          <p>Though Komodo has created the world’s best and most innovative blockchain solutions (Agama, JUMBLr, HyperDEX, Blockchain Generator, dICO, dPOW, Smart Contracts and more), our research shows that navigating the world of blockchains can intimidate early adopters given its steep learning curve</p>
+          <p>Chainmakers’ mission is to streamline the process of deploying your own custom, independent blockchain(s), and to ensure that you have zero knowledge gaps on how to utilize Komodo’s end-to-end blockchain solutions to secure and accelerate the growth of your business today.</p>
+          <p><button class="w3-button w3-teal" onclick="window.open('https://chainmakers.co/', '_blank')">Go to Chainmakers</button></p>
+      </div>
+
+      <button onclick="myFunction('redfox_info')" class="w3-btn w3-block w3-black w3-left-align">Redfox Labs</button>
+      <div id="redfox_info" class="w3-container w3-hide">
+          <p>RedFOX Labs builds out and incubates market leading business models in emerging markets. Our unique build out incubator model enhances proven business models by refining, customising and integrating open source blockchain technologies, resulting in ready to launch, market leading applications.</p>
+          <p>Powered by the latest technology offerings from open source blockchain project Komodo Platform.</p>
+          <p>Our unique build-out incubator model delivers market leading, purpose built applications from the ground up.</p>
+          <p>We partner with industry experts to offer support, collaboration and commitment from beginning to end.</p>
+          <p><button class="w3-button w3-teal" onclick="window.open('http://redfoxlabs.io/', '_blank')">Go to Redfox Labs</button></p>
+      </div>
+
+      <button onclick="myFunction('kmdlabs_info')" class="w3-btn w3-block w3-black w3-left-align">KMDLabs</button>
+      <div id="kmdlabs_info" class="w3-container w3-hide">
+          <p>A fully scalable and customizable test bed for testing and developing your Komodo (KMD) based assetchains and Crypto-Conditions contracts, KMDLabs provides an incentivized test network, technical services and a support knowledge base.</p>
+          <p>KMDLabs’ ease of use and rapid deployment allow projects of any technical level or size a place to experiment with the depth of Komodo and Crypto-Conditions technology.</p>
+          <p>Testing is conducted on the KMDLabs fungible cluster. Additional fungible and non-fungible chains and clusters can be added as needed for more customized or private development. It is possible for these chains to be notarized to the Bitcoin blockchain through the main Komodo (KMD) chain using Komodo’s Delayed Proof of Work (dPoW).</p>
+          <p><button class="w3-button w3-teal" onclick="window.open('https://kmdlabs.com/', '_blank')">Go to KMDLabs</button></p>
+      </div>
+
+      <button onclick="myFunction('pungo_info')" class="w3-btn w3-block w3-black w3-left-align">Pungo</button>
+      <div id="pungo_info" class="w3-container w3-hide">
+          <p>Pungo has been around since 2017 and it's made of several companies in different jurisdictions, with a passionated team behind it.</p>
+          <p>As regulatory frameworks advance, we plan to work closely to keep everything compliant and find best opportunites. </p>
+          <p>We are focused on delivering the best product experience to the community and devoted to build fair & peer based economies.</p>
+          <p>With Pungo Cash you can send funds anywhere and deposit and withdraw funds directly in +35 countries</p>
+          <p><button class="w3-button w3-teal" onclick="window.open('https://pungo.io/', '_blank')">Go to Pungo</button></p>
+      </div>
+
+      <button onclick="myFunction('pioneers_info')" class="w3-btn w3-block w3-black w3-left-align">Komodo Pioneers</button>
+      <div id="pioneers_info" class="w3-container w3-hide">
+          <p>We are an association of people with a common interest in Komodo Platform and entrepreneurship. We are on a mission to help bootstrap small community projects and initiatives.</p>
+          <p>Many of us work full time in the blockchain industry, some even for the Komodo project.</p>
+          <p>We are all part of the great Komodo community and you can find us from the Discord channels.</p>
+          <p>The coming digitized world is all about entrepreneurship. Let us know about your project.</p>
+          <p><button class="w3-button w3-teal" onclick="window.open('https://www.komodopioneers.com/', '_blank')">Go to Komodo Pioneers</button></p>
+      </div>
+
+    </div>
+    <br>
+  <!-- Footer -->
+  <footer class="w3-container w3-black">
+    <p>Dashboard inspired by <a href="http://awesomekmd.com/" target="_blank">AwesomeKMD</a></p>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
