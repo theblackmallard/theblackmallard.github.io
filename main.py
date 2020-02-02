@@ -7,6 +7,7 @@ import json
 app = flask.Flask(__name__)
 package = {}
 start = True
+
 def refresh_blocks():
     global node, block, notarize, start
     threading.Timer(300.0, refresh_blocks).start()
@@ -17,7 +18,6 @@ def refresh_blocks():
     start = False
     with open('data.json', 'w') as f:
         json.dump(package, f)
-    return print('refreshed')
 
 if start is True:
     refresh_blocks()
