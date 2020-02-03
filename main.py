@@ -30,7 +30,7 @@ def get_node_count():
     blocks = obj['blocks']
     notarized = obj['notarized']
     nodes = obj['nodes']
-    return render_template('admin.html', var1=blocks, var2=notarized, var3=nodes)
+    return render_template('index.html', var1=blocks, var2=notarized, var3=nodes)
 
 
 if __name__ == '__main__':
