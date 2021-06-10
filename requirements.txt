@@ -1,4 +1,4 @@
-fastapi==0.46.0
+fastapi==0.65.2
 starlette==0.12.9
 Jinja2==2.10.3
 Pillow==6.2.0
